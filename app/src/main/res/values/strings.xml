@@ -1,0 +1,41 @@
+<resources>
+    <string name="sync_service">com.example.ok4r_.notashialina.sincronizacion</string>
+    <string name="gps_service">com.example.ok4r_.notashialina.localizacion</string>
+    <string name="google_app_id">607855369375</string>
+    <string name="app_name">Notas Hialina</string>
+    <string name="account_type">com.example.ok4r_.notashialina.account</string>
+    <string name="provider_authority">com.example.ok4r_.notashialina</string>
+    <string name="nombreNotas">Nombre</string>
+    <string name="action_sync_productos">Actualizar productos</string>
+    <string name="action_settings">Configuración</string>
+    <!-- Strings de diálogo personalizado -->
+    <string name="info_text">Configurar la ruta</string>
+    <string name="crear_boton">CREAR CUENTA</string>
+    <string name="nombre_input">Nombre</string>
+    <string name="contrasena_input">Constraseña</string>
+    <string name="recordar_check">Recordarme</string>
+    <string name="olvidar_text">¿Olvidaste tu Contraseña?</string>
+    <string name="entrar_boton">Cargar la ruta</string>
+    <string name="cliente_label">Cliente</string>
+    <string name="producto_label">Producto</string>
+    <string name="fecha_label">Fecha</string>
+    <string name="prioridad_label">Prioridad</string>
+    <string name="notas_label">Notas</string>
+    <string name="notas_hint">Notas</string>
+    <string name="nueva_nota">Nueva Nota</string>
+    <string-array name="rutas">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="dias">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+    </string-array>
+    <string-array name="prioridades">
+        <item>Alta</item>
+        <item>Media</item>
+        <item>Baja</item>
+    </string-array>
+</resources>

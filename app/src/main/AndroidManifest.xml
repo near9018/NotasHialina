@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ok4r_.notashialina">
+
+    <!-- Red -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Autenticación -->
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <!-- Sincronización -->
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <!-- Localizacion -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+
+        <!-- ACTIVIDAD PRINCIPAL -->
+        <activity
+            android:name=".ui.Main"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ok4r_.notashialina.ui.Main" />
+        </activity>
+
+        <!-- PROVIDER -->
+        <provider
+            android:name=".provider.ProviderDeDatos"
+            android:authorities="@string/provider_authority"
+            android:exported="false"
+            android:syncable="true" />
+
+        <!-- SERVICIO DE AUTENTICACIÓN -->
+        <service
+            android:name=".sync.AuthenticationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+        <!-- SERVICIO DE SINCRONIZACIÓN -->
+        <service
+            android:name=".sync.SyncService"
+            android:exported="false"
+            android:enabled="true"
+            android:process="@string/sync_service">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
+        <!-- Evita que el teclado desplace el contenido ui(Funcion adjustPan) -->
+        <activity
+            android:name=".ui.NuevaNota"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ok4r_.notashialina.ui.Main" />
+        </activity>
+
+        <service
+            android:name=".utils.Localizacion"
+            android:enabled="true"
+            android:exported="false"
+            android:process="@string/gps_service">
+
+        </service>
+    </application>
+
+</manifest>
